@@ -37,6 +37,7 @@ export default async function handler(req, res) {
         };
 
         await playerRef.set(defaultPlayerData);
+        console.log(defaultPlayerData)
         res.status(200).json(defaultPlayerData);
       } catch (error) {
         res.status(500).json({ error: 'Player initialization failed' });
