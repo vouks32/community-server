@@ -1,5 +1,5 @@
 import admin from 'firebase-admin';
-import { firebaseConfig } from '../../firebaseConfig'; // Importez votre config Firebase
+import { firebaseConfig } from '../firebaseConfig'; // Importez votre config Firebase
 
 // Initialisation Firebase
 if (!admin.apps.length) {
