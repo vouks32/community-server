@@ -51,11 +51,13 @@ playerAPI.put('/api/players/:email', async (req, res) => {
 });
 
 
-playerAPI.get('/', async (req, res) => {})
+playerAPI.get('/', async (req, res) => {
+  
+})
 
 
 // Récupération des données joueur
-playerAPI.get('/api/players/:email', async (req, res) => {
+playerAPI.get('/api/players', async (req, res) => {
   try {
     const { email } = req.params;
     const playerDoc = await getDoc('players', email);
