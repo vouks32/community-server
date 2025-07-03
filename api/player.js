@@ -1,139 +1,179 @@
-import admin from 'firebase-admin';
-import { firebaseConfig } from '../firebaseConfig'; // Importez votre config Firebase
+import { addDoc, getDoc, updateDoc } from '../localDatabase';
+const express = require('express');
+const cors = require('cors');
 
-// Initialisation Firebase
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(firebaseConfig),
-    databaseURL: `https://${firebaseConfig.projectId}.firebaseio.com`
-  });
-}
+const playerAPI = express();
+playerAPI.use(cors());
+playerAPI.use(express.json());
 
-const db = admin.firestore();
+// Initialisation du joueur
+playerAPI.post('/api/players', async (req, res) => {
+  try {
+    const { email } = req.body;
+    const role = getRole();
+    const roleData = roleNames[role];
 
-export default async function handler(req, res) {
-  const { method } = req;
+    const playerData = {
+      email,
+      role,
+      health: roleData.defaultHealth,
+      morale: roleData.defaultMorale,
+      strength: roleData.defaultForce,
+      intelligence: roleData.defaultIntelligence,
+      money: roleData.defaultMoney * 1000,
+      items: [],
+      isWerewolf: false,
+      lastUpdated: Date.now()
+    };
 
-  switch (method) {
-    case 'POST':
-      // Initialisation du joueur
-      try {
-        const { email, userData } = req.body;
-        const playerRef = db.collection('players').doc(email);
-        
-        // Ajouter des valeurs par défaut
-        const defaultPlayerData = {
-          ...userData,
-          health: 85,
-          morale: 70,
-          strength: 7,
-          intelligence: 8,
-          activityPoints: 3,
-          money: 200,
-          role: 'professor',
-          items: ['house', 'dog'],
-          isWerewolf: false,
-          lastUpdated: admin.firestore.FieldValue.serverTimestamp()
-        };
-
-        await playerRef.set(defaultPlayerData);
-        console.log(defaultPlayerData)
-        res.status(200).json(defaultPlayerData);
-      } catch (error) {
-        res.status(500).json({ error: 'Player initialization failed' });
-      }
-      break;
-
-    case 'PUT':
-      // Mise à jour du joueur (pénalités, transformation)
-      try {
-        const { email } = req.body;
-        const playerRef = db.collection('players').doc(email);
-        const playerDoc = await playerRef.get();
-        
-        if (!playerDoc.exists) {
-          return res.status(404).json({ error: 'Player not found' });
-        }
-
-        const playerData = playerDoc.data();
-        const now = new Date();
-        const lastUpdated = playerData.lastUpdated.toDate();
-        const hoursSinceUpdate = Math.floor((now - lastUpdated) / (1000 * 60 * 60));
-
-        // Appliquer les pénalités pour chaque cycle complet (20 min)
-        const cycles = Math.floor(hoursSinceUpdate * 3);
-        if (cycles > 0) {
-          const updatedData = {
-            health: Math.max(playerData.health - (10 * cycles), 0),
-            morale: Math.max(playerData.morale - (20 * cycles), 0),
-            strength: Math.max(playerData.strength - (2 * cycles), 1),
-            intelligence: Math.max(playerData.intelligence - (1 * cycles), 1),
-            isWerewolf: false,
-            lastUpdated: admin.firestore.FieldValue.serverTimestamp()
-          };
-
-          // Vérifier la transformation en loup-garou
-          const shouldTransform = calculateTransformationScore(playerData) >= 0.7;
-          if (shouldTransform) {
-            updatedData.isWerewolf = true;
-            updatedData.strength = Math.min(playerData.strength + 5, 15);
-            updatedData.intelligence = Math.max(playerData.intelligence - 3, 1);
-            updatedData.health = Math.min(playerData.health + 20, 100);
-          }
-
-          await playerRef.update(updatedData);
-          res.status(200).json(updatedData);
-        } else {
-          res.status(304).json({ message: 'No update needed' });
-        }
-      } catch (error) {
-        res.status(500).json({ error: 'Player update failed' });
-      }
-      break;
-
-    case 'GET':
-      // Récupération des données du joueur
-      try {
-        const { email } = req.query;
-        const playerRef = db.collection('players').doc(email);
-        const playerDoc = await playerRef.get();
-        
-        if (!playerDoc.exists) {
-          return res.status(404).json({ error: 'Player not found' });
-        }
-
-        res.status(200).json(playerDoc.data());
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch player data' });
-      }
-      break;
-
-    default:
-      res.setHeader('Allow', ['GET', 'POST', 'PUT']);
-      res.status(405).end(`Method ${method} Not Allowed`);
+    await addDoc('players', email, playerData)
+    res.status(201).json(playerData);
+  } catch (error) {
+    console.error('Erreur création joueur:', error);
+    res.status(500).json({ error: 'Échec création joueur' });
   }
+});
+
+// Mise à jour du joueur
+playerAPI.put('/api/players/:email', async (req, res) => {
+  try {
+    const { email } = req.params;
+    const playerData = await getDoc('players', email);
+
+    //// FAIRE DES TRUCS ////
+
+
+    res.json(playerData);
+  } catch (error) {
+    console.error('Erreur mise à jour joueur:', error);
+    res.status(500).json({ error: 'Échec mise à jour joueur' });
+  }
+});
+
+// Récupération des données joueur
+playerAPI.get('/players/:email', async (req, res) => {
+  try {
+    const { email } = req.params;
+    const playerDoc = await getDoc('players', email);
+
+    if (!playerDoc) {
+      return res.status(404).json({ error: 'Joueur non trouvé' });
+    }
+
+    res.json(playerDoc);
+  } catch (error) {
+    console.error('Erreur récupération joueur:', error);
+    res.status(500).json({ error: 'Échec récupération joueur' });
+  }
+});
+
+
+export { playerAPI }
+
+
+
+
+////////////////////////////////////////////
+
+
+const getRole = () => {
+  let roleKeys = Object.keys(roleNames);
+  let role = "mayor";
+
+  while (role.includes("mayor")) {
+    role = roleKeys[Math.floor(Math.random() * roleKeys.length)]
+  }
+
+  return role
 }
 
-// Calcul du score de transformation
-function calculateTransformationScore(playerData) {
-  const { health, morale, strength, intelligence } = playerData;
-  
-  const healthScore = (100 - health) / 100;
-  const moraleScore = (100 - morale) / 100;
-  const strengthScore = strength / 10;
-  const intelligenceScore = (10 - intelligence) / 10;
-
-  const weights = {
-    health: 0.4,
-    morale: 0.3,
-    strength: 0.2,
-    intelligence: 0.1
-  };
-
-  return (
-    healthScore * weights.health +
-    moraleScore * weights.morale +
-    strengthScore * weights.strength +
-    intelligenceScore * weights.intelligence
-  );
-}
+const roleNames = {
+  policeman: {
+    nom: 'Policier',
+    defaultHealth: 85,
+    defaultMorale: 70,
+    defaultForce: 7,
+    defaultIntelligence: 8,
+    defaultMoney: 200
+  },
+  professor: {
+    nom: 'Professeur',
+    defaultHealth: 80,
+    defaultMorale: 75,
+    defaultForce: 5,
+    defaultIntelligence: 9,
+    defaultMoney: 180
+  },
+  taxi: {
+    nom: 'Chauffeur de Taxi',
+    defaultHealth: 85,
+    defaultMorale: 65,
+    defaultForce: 6,
+    defaultIntelligence: 7,
+    defaultMoney: 150
+  },
+  thief: {
+    nom: 'Voleur',
+    defaultHealth: 75,
+    defaultMorale: 60,
+    defaultForce: 8,
+    defaultIntelligence: 7,
+    defaultMoney: 250
+  },
+  assassin: {
+    nom: 'Assassin',
+    defaultHealth: 90,
+    defaultMorale: 50,
+    defaultForce: 9,
+    defaultIntelligence: 6,
+    defaultMoney: 300
+  },
+  engineer: {
+    nom: 'Ingénieur',
+    defaultHealth: 80,
+    defaultMorale: 75,
+    defaultForce: 6,
+    defaultIntelligence: 8,
+    defaultMoney: 220
+  },
+  doctor: {
+    nom: 'Docteur',
+    defaultHealth: 90,
+    defaultMorale: 80,
+    defaultForce: 5,
+    defaultIntelligence: 8,
+    defaultMoney: 250
+  },
+  mayor: {
+    nom: 'Maire',
+    defaultHealth: 85,
+    defaultMorale: 85,
+    defaultForce: 5,
+    defaultIntelligence: 9,
+    defaultMoney: 350
+  },
+  lawyer: {
+    nom: 'Avocat',
+    defaultHealth: 80,
+    defaultMorale: 80,
+    defaultForce: 5,
+    defaultIntelligence: 8,
+    defaultMoney: 300
+  },
+  storekeeper: {
+    nom: 'Magasinier',
+    defaultHealth: 85,
+    defaultMorale: 70,
+    defaultForce: 6,
+    defaultIntelligence: 7,
+    defaultMoney: 200
+  },
+  wizard: {
+    nom: 'Sorcier',
+    defaultHealth: 75,
+    defaultMorale: 65,
+    defaultForce: 4,
+    defaultIntelligence: 10,
+    defaultMoney: 280
+  }
+};
