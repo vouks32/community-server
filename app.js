@@ -1,8 +1,8 @@
 import { getDocs, query, updateDoc } from './localDatabase.js';
 import { playerAPI } from "./api/player.js";
 
-playerAPI.listen(3000, () => {
-    console.log(`Serveur joueur démarré sur le port 3000`);
+playerAPI.listen(80, () => {
+    console.log(`Serveur joueur démarré sur le port 80`);
 });
 
 
