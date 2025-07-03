@@ -7,7 +7,7 @@ playerAPI.use(cors());
 playerAPI.use(e.json());
 
 // Initialisation du joueur
-playerAPI.post('api/players', async (req, res) => {
+playerAPI.post('/api/players', async (req, res) => {
   try {
     const { email } = req.body;
     const role = getRole();
@@ -35,7 +35,7 @@ playerAPI.post('api/players', async (req, res) => {
 });
 
 // Mise à jour du joueur
-playerAPI.put('api/players/:email', async (req, res) => {
+playerAPI.put('/api/players/:email', async (req, res) => {
   try {
     const { email } = req.params;
     const playerData = await getDoc('players', email);
@@ -50,8 +50,12 @@ playerAPI.put('api/players/:email', async (req, res) => {
   }
 });
 
+
+playerAPI.get('/', async (req, res) => {})
+
+
 // Récupération des données joueur
-playerAPI.get('api/players/:email', async (req, res) => {
+playerAPI.get('/api/players/:email', async (req, res) => {
   try {
     const { email } = req.params;
     const playerDoc = await getDoc('players', email);
