@@ -110,8 +110,8 @@ const roleNames = {
     defaultIntelligence: 9,
     defaultMoney: 180
   },
-  taxi: {
-    nom: 'Chauffeur de Taxi',
+  driver: {
+    nom: 'Chauffeur',
     defaultHealth: 85,
     defaultMorale: 65,
     defaultForce: 6,
@@ -133,14 +133,6 @@ const roleNames = {
     defaultForce: 9,
     defaultIntelligence: 6,
     defaultMoney: 300
-  },
-  engineer: {
-    nom: 'Ingénieur',
-    defaultHealth: 80,
-    defaultMorale: 75,
-    defaultForce: 6,
-    defaultIntelligence: 8,
-    defaultMoney: 220
   },
   doctor: {
     nom: 'Docteur',
