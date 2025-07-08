@@ -7,17 +7,22 @@ const DB = new Low(DBFile, {})
 
 // Read data from file (or set defaults if file doesn't exist)
 await DB.read()
-DB.data ||= {
-    players: {},
-    items: {},
-    infrastructures: {},
-}
+if (Object.keys(DB.data).length == 0)
+    DB.data = {
+        players: {},
+        items: {},
+        infrastructures: {},
+    }
 
 // Create new collection with optional initial document
 const createCollection = async (collection_id, initialDoc = null) => {
     // Check if collection already exists
     if (DB.data[collection_id] !== undefined) {
-        throw new Error(`Collection ${collection_id} already exists`);
+        return {
+            success: true,
+            collection: DB.data[collection_id],
+            initialDocId: initialDoc?.id || null
+        };
     }
 
     // Initialize empty collection
@@ -26,9 +31,6 @@ const createCollection = async (collection_id, initialDoc = null) => {
     // Add initial document if provided
     if (initialDoc) {
         const { id, ...data } = initialDoc;
-        if (!id) {
-            throw new Error('Initial document must have an id property');
-        }
         DB.data[collection_id][id] = data;
     }
 
@@ -45,7 +47,7 @@ const addDoc = async (collection_id, document_id, data) => {
     if (!DB.data[collection_id]) {
         DB.data[collection_id] = {};
     }
-    
+
     DB.data[collection_id][document_id] = data;
     await DB.write();
     return { ...data, id: document_id };
@@ -53,9 +55,9 @@ const addDoc = async (collection_id, document_id, data) => {
 
 const updateDoc = async (collection_id, document_id, data) => {
     if (!DB.data[collection_id]?.[document_id]) {
-        throw new Error('Document not found');
+        return false;
     }
-    
+
     DB.data[collection_id][document_id] = {
         ...DB.data[collection_id][document_id],
         ...data
@@ -67,7 +69,7 @@ const updateDoc = async (collection_id, document_id, data) => {
 const getDoc = async (collection_id, document_id) => {
     const doc = DB.data[collection_id]?.[document_id];
     if (!doc) {
-        throw new Error('Document not found');
+       return false;
     }
     return { ...doc, id: document_id };
 }
@@ -81,14 +83,14 @@ const getDocs = async (collection_id, query = null) => {
             size: 0
         };
     }
-    
+
     let docs = Object.entries(DB.data[collection_id])
         .map(([id, data]) => ({ ...data, id }));
-    
+
     if (query) {
         docs = query.execute(docs);
     }
-    
+
     return {
         docs,
         empty: docs.length === 0,
@@ -107,25 +109,25 @@ const query = () => {
         conditions.push({ field, operator, value });
         return builder;
     };
-    
+
     const limit = (count) => {
         limitCount = count;
         return builder;
     };
-    
+
     const orderBy = (field, direction = 'asc') => {
         orderByField = field;
         orderDirection = direction.toLowerCase() === 'desc' ? 'desc' : 'asc';
         return builder;
     };
-    
+
     const execute = (docs) => {
         // Apply filtering
         let results = docs.filter(doc => {
             return conditions.every(condition => {
                 const { field, operator, value } = condition;
                 const docValue = doc[field];
-                
+
                 switch (operator) {
                     case '==': return docValue === value;
                     case '!=': return docValue !== value;
@@ -133,11 +135,11 @@ const query = () => {
                     case '<=': return docValue <= value;
                     case '>': return docValue > value;
                     case '>=': return docValue >= value;
-                    case 'array-contains': 
+                    case 'array-contains':
                         return Array.isArray(docValue) && docValue.includes(value);
-                    case 'in': 
+                    case 'in':
                         return Array.isArray(value) && value.includes(docValue);
-                    case 'not-in': 
+                    case 'not-in':
                         return Array.isArray(value) && !value.includes(docValue);
                     default: return false;
                 }
@@ -149,11 +151,11 @@ const query = () => {
             results.sort((a, b) => {
                 const aValue = a[orderByField];
                 const bValue = b[orderByField];
-                
+
                 if (aValue === bValue) return 0;
                 if (aValue === undefined) return 1;
                 if (bValue === undefined) return -1;
-                
+
                 const comparison = aValue > bValue ? 1 : -1;
                 return orderDirection === 'asc' ? comparison : -comparison;
             });
@@ -166,14 +168,14 @@ const query = () => {
 
         return results;
     };
-    
+
     const builder = {
         where,
         limit,
         orderBy,
         execute
     };
-    
+
     return builder;
 }
 

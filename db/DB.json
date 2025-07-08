@@ -1,1 +1,25 @@
-{}
+{
+  "players": {
+    "jotsaange@gmail.com": {
+      "username": "Vouks",
+      "phone": "676073559",
+      "email": "jotsaange@gmail.com",
+      "password": "123",
+      "profileImage": null,
+      "createdAt": "2025-07-08T03:36:36.159Z",
+      "lastLogin": "2025-07-08T03:36:36.159Z",
+      "isFirstTime": true,
+      "items": [],
+      "role": "taxi",
+      "health": 85,
+      "morale": 65,
+      "strength": 6,
+      "intelligence": 7,
+      "money": 150000,
+      "isWerewolf": false,
+      "lastUpdated": 1751945796985
+    }
+  },
+  "items": {},
+  "infrastructures": {}
+}

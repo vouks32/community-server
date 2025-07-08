@@ -9,12 +9,13 @@ playerAPI.use(e.json());
 // Initialisation du joueur
 playerAPI.post('/api/players', async (req, res) => {
   try {
-    const { email } = req.body;
+    const player = req.body;
     const role = getRole();
     const roleData = roleNames[role];
+    console.log("Création du joueur", player.email, "Au role", role);
 
     const playerData = {
-      email,
+      ...player,
       role,
       health: roleData.defaultHealth,
       morale: roleData.defaultMorale,
@@ -26,7 +27,8 @@ playerAPI.post('/api/players', async (req, res) => {
       lastUpdated: Date.now()
     };
 
-    await addDoc('players', email, playerData)
+    await addDoc('players', player.email, playerData)
+    console.log("Création du joueur COMPLÉTÉ AVEC SUCCES");
     res.status(201).json(playerData);
   } catch (error) {
     console.error('Erreur création joueur:', error);
@@ -52,7 +54,7 @@ playerAPI.put('/api/players/:email', async (req, res) => {
 
 
 playerAPI.get('/', async (req, res) => {
-  
+  res.send('Welcome to the homepage!');
 })
 
 
@@ -61,11 +63,14 @@ playerAPI.get('/api/players', async (req, res) => {
   try {
     const { email } = req.params;
     const playerDoc = await getDoc('players', email);
+    console.log('récupération de s informations de', email);
 
     if (!playerDoc) {
+      console.log('Joueur non trouvé');
       return res.status(404).json({ error: 'Joueur non trouvé' });
     }
 
+    console.log('Joueur  trouvé');
     res.json(playerDoc);
   } catch (error) {
     console.error('Erreur récupération joueur:', error);
