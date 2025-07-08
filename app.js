@@ -1,5 +1,7 @@
 import { getDocs, query, updateDoc } from './localDatabase.js';
 import { playerAPI } from "./api/player.js";
+import { roleNames } from './PlayerData.js';
+
 
 playerAPI.listen(80, () => {
     console.log(`Serveur joueur démarré sur le port 80`);
@@ -21,10 +23,10 @@ const goToDayPhase = async () => {
             const cycles = 1;
             if (cycles > 0) {
                 const updatedData = {
-                    health: Math.max(playerData.health - (5 * cycles), 0),
-                    morale: Math.max(playerData.morale - (10 * cycles), 0),
-                    strength: Math.max(playerData.strength - (1 * cycles), 1),
-                    intelligence: Math.max(playerData.intelligence - (1 * cycles), 1),
+                    health: Math.max(playerData.health - (roleNames[playerData.role].dailyEffect.health * cycles), 0),
+                    morale: Math.max(playerData.morale - (roleNames[playerData.role].dailyEffect.morale * cycles), 0),
+                    strength: Math.max(playerData.strength - (roleNames[playerData.role].dailyEffect.strength * cycles), 1),
+                    intelligence: Math.max(playerData.intelligence - (roleNames[playerData.role].dailyEffect.intelligence * cycles), 1),
                     isWerewolf: false,
                     lastUpdated: Date.now()
                 };
