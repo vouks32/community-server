@@ -68,7 +68,7 @@ playerAPI.get('/api/playerroles', async (req, res) => {
 playerAPI.get('/api/players', async (req, res) => {
   try {
     const { email } = req.query;
-    console.log('===>',req.query)
+    console.log('===>', req.query)
     const playerDoc = await getDoc('players', email);
     console.log('récupération de s informations de', email);
 
@@ -85,6 +85,27 @@ playerAPI.get('/api/players', async (req, res) => {
   }
 });
 
+app.get('/api/file/:folder/:name', (req, res, next) => {
+  const fileName = req.params.name
+  const FolderName = req.params.folders
+
+  const options = {
+    root: path.join(__dirname, '../public/' + FolderName),
+    dotfiles: 'deny',
+    headers: {
+      'x-timestamp': Date.now(),
+      'x-sent': true
+    }
+  }
+
+  res.sendFile(fileName, options, (err) => {
+    if (err) {
+      next(err)
+    } else {
+      console.log('Sent:', fileName)
+    }
+  })
+})
 
 export { playerAPI }
 
