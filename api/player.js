@@ -86,7 +86,7 @@ playerAPI.get('/api/players', async (req, res) => {
 });
 
 app.get('/api/file/:folder/:name', (req, res, next) => {
-  const fileName = req.params.name
+  const fileName = req.params.name+'.png'
   const FolderName = req.params.folders
 
   const options = {
