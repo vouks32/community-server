@@ -40,9 +40,10 @@ playerAPI.post('/api/players', async (req, res) => {
 // Mise à jour du joueur
 playerAPI.put('/api/players', async (req, res) => {
   try {
-    const { email } = req.params;
+    const { email } = req.body;
+    console.log('updating', email, req.body)
 
-    const playerData = await updateDoc('players', email, req.params)
+    const playerData = await updateDoc('players', email, req.body.updates)
     //// FAIRE DES TRUCS ////
 
     res.json(playerData);
@@ -66,7 +67,8 @@ playerAPI.get('/api/playerroles', async (req, res) => {
 // Récupération des données joueur
 playerAPI.get('/api/players', async (req, res) => {
   try {
-    const { email } = req.params;
+    const { email } = req.query;
+    console.log('===>',req.query)
     const playerDoc = await getDoc('players', email);
     console.log('récupération de s informations de', email);
 
@@ -75,7 +77,7 @@ playerAPI.get('/api/players', async (req, res) => {
       return res.status(404).json({ error: 'Joueur non trouvé' });
     }
 
-    console.log('Joueur  trouvé');
+    console.log('Joueur  trouvé', playerDoc);
     res.json(playerDoc);
   } catch (error) {
     console.error('Erreur récupération joueur:', error);

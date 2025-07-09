@@ -6,18 +6,47 @@
       "email": "jotsaange@gmail.com",
       "password": "123",
       "profileImage": null,
-      "createdAt": "2025-07-08T03:36:36.159Z",
-      "lastLogin": "2025-07-08T03:36:36.159Z",
-      "isFirstTime": true,
-      "items": [],
-      "role": "taxi",
+      "createdAt": "2025-07-08T19:11:12.334Z",
+      "lastLogin": "2025-07-08T19:11:12.334Z",
+      "isFirstTime": false,
+      "items": [
+        {
+          "id": "bike_senke",
+          "addedDate": "2025-07-09T03:47:09.929Z",
+          "sellerLevel": 2
+        }
+      ],
+      "role": "policeman",
       "health": 85,
-      "morale": 65,
-      "strength": 6,
-      "intelligence": 7,
-      "money": 150000,
+      "morale": 95,
+      "strength": 7,
+      "intelligence": 11,
+      "money": 105000,
       "isWerewolf": false,
-      "lastUpdated": 1751945796985
+      "lastUpdated": 1752001872331,
+      "updates": {
+        "isFirstTime": false
+      },
+      "activityPoints": 0
+    },
+    "belledesign237@gmail.com": {
+      "username": "Guilliene",
+      "phone": "676073559",
+      "email": "belledesign237@gmail.com",
+      "password": "1234567890",
+      "profileImage": "file:///data/user/0/com.vouks.community/cache/ImagePicker/f62ad617-e8df-4be5-a7d6-307e8dee2dc3.jpeg",
+      "createdAt": "2025-07-09T02:40:44.349Z",
+      "lastLogin": "2025-07-09T02:40:44.349Z",
+      "isFirstTime": true,
+      "role": "lawyer",
+      "health": 80,
+      "morale": 80,
+      "strength": 5,
+      "intelligence": 8,
+      "money": 300000,
+      "items": [],
+      "isWerewolf": false,
+      "lastUpdated": 1752028843882
     }
   },
   "items": {},
