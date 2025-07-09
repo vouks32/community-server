@@ -85,20 +85,18 @@ playerAPI.get('/api/players', async (req, res) => {
   }
 });
 
-app.get('/api/file/:folder/:name', (req, res, next) => {
+playerAPI.get('/api/file/:folder/:name', (req, res, next) => {
   const fileName = req.params.name+'.png'
   const FolderName = req.params.folders
 
   const options = {
-    root: path.join(__dirname, '../public/' + FolderName),
-    dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
       'x-sent': true
     }
   }
 
-  res.sendFile(fileName, options, (err) => {
+  res.sendFile('public/' + FolderName + '/' + fileName, options, (err) => {
     if (err) {
       next(err)
     } else {
