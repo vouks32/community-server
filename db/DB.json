@@ -9,30 +9,20 @@
       "createdAt": "2025-07-08T19:11:12.334Z",
       "lastLogin": "2025-07-08T19:11:12.334Z",
       "isFirstTime": false,
-      "items": [
-        {
-          "id": "bike_senke",
-          "addedDate": "2025-07-09T03:47:09.929Z",
-          "sellerLevel": 2
-        },
-        {
-          "id": "diploma_finance",
-          "addedDate": "2025-07-09T18:13:17.974Z",
-          "sellerLevel": 3
-        }
-      ],
+      "items": [],
       "role": "policeman",
       "health": 85,
-      "morale": 115,
+      "morale": 90,
       "strength": 7,
-      "intelligence": 17,
-      "money": 25000,
+      "intelligence": 20,
+      "money": 7889000,
       "isWerewolf": false,
       "lastUpdated": 1752001872331,
       "updates": {
         "isFirstTime": false
       },
-      "activityPoints": 8
+      "activityPoints": 3,
+      "id": "jotsaange@gmail.com"
     },
     "belledesign237@gmail.com": {
       "username": "Guilliene",

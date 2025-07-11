@@ -2,6 +2,11 @@ import { addDoc, getDoc, updateDoc } from '../localDatabase.js';
 import e from 'express';
 import cors from "cors";
 import { roleNames } from '../PlayerData.js';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const playerAPI = e();
 playerAPI.use(cors());
@@ -39,7 +44,7 @@ playerAPI.post('/api/players', async (req, res) => {
 
 // Mise à jour du joueur
 playerAPI.put('/api/players', async (req, res) => {
-  try {
+  try {if(!req.body) return;
     const { email } = req.body;
     console.log('updating', email, req.body)
 
@@ -87,8 +92,9 @@ playerAPI.get('/api/players', async (req, res) => {
 
 playerAPI.get('/api/file/:folder/:name', (req, res, next) => {
   const fileName = req.params.name + '.png'
-  const FolderName = req.params.folders
+  const FolderName = req.params.folder
 
+  console.log(path.join(__dirname, '..', 'public', FolderName))
   const options = {
     root: path.join(__dirname, '..', 'public', FolderName),
     dotfiles: 'deny',

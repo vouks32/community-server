@@ -2,7 +2,7 @@ import { getDocs, query, updateDoc } from './localDatabase.js';
 import { playerAPI } from "./api/player.js";
 import { roleNames } from './PlayerData.js';
 
-
+console.clear();
 playerAPI.listen(80, () => {
     console.log(`Serveur joueur démarré sur le port 80`);
 });
