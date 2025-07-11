@@ -35,7 +35,7 @@ playerAPI.post('/api/players', async (req, res) => {
       lastUpdated: Date.now()
     };
 
-    await addDoc('players', player.email)
+    await addDoc('players', player.email, playerData)
     console.log("Création du joueur COMPLÉTÉ AVEC SUCCES");
     res.status(201).json(playerData);
   } catch (error) {
@@ -62,7 +62,7 @@ playerAPI.put('/api/players', async (req, res) => {
   }
 });
 
-
+// récuperer les roles des joueurs
 playerAPI.get('/api/playerroles', async (req, res) => {
   try {
     res.json(roleNames);
@@ -71,7 +71,6 @@ playerAPI.get('/api/playerroles', async (req, res) => {
     res.status(500).json({ error: 'Échec récupération du role du joueur' });
   }
 })
-
 
 // Récupération des données joueur
 playerAPI.get('/api/players', async (req, res) => {
@@ -94,6 +93,8 @@ playerAPI.get('/api/players', async (req, res) => {
   }
 });
 
+
+////////////////////                    FICHIERS                  ////////////////////////////
 playerAPI.get('/api/file/:folder/:name', (req, res, next) => {
   const fileName = req.params.name + '.png'
   const FolderName = req.params.folder
@@ -118,6 +119,52 @@ playerAPI.get('/api/file/:folder/:name', (req, res, next) => {
     }
   })
 })
+
+
+///////////////////                     MESSAGES                  ////////////////////////////
+// Récupération des méssages des joueurs
+playerAPI.get('/api/messages', async (req, res) => {
+  try {
+    const { date } = req.query;
+    console.log("-------------");
+    const messageDoc = await getDoc('messages', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+    console.log('récupération des messages de la date', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+
+    if (!messageDoc) {
+      console.log('Messages non-trouvé');
+      return res.status(404).json({ error: 'Pas de Messages à cette date' });
+    }
+
+    console.log('Messages trouvé');
+    res.json(messageDoc);
+  } catch (error) {
+    console.error('Erreur récupération des messages du:', (new Date()).toLocaleDateString('en-GB').replace('/', '-'));
+    res.status(500).json({ error: 'Échec récupération des messages' });
+  }
+});
+
+// ajout d'un message
+playerAPI.put('/api/messages', async (req, res) => {
+  try {
+    const { message } = req.query;
+    const document_id = (new Date()).toLocaleDateString('en-GB').replace('/', '-');
+    console.log("-------------");
+
+    let todayMessages = await getDoc('messages', document_id)
+    if (!todayMessages) {
+      todayMessages = await addDoc('messages', document_id, { "0": message })
+    } else {
+      let _id = Object.entries(object1).length + "";
+      todayMessages = await addDoc('messages', document_id, { ...todayMessages, _id: message })
+    }
+
+    console.log('Messages enregistré');
+    res.json(todayMessages);
+  } catch (error) {
+    console.error('Erreur d\'enregistrement des messages du:', (new Date()).toLocaleDateString('en-GB').replace('/', '-'));
+    res.status(500).json({ error: 'Échec enregistrement des messages' });
+  }
+});
 
 export { playerAPI }
 

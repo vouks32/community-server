@@ -7,11 +7,13 @@ const DB = new Low(DBFile, {})
 
 // Read data from file (or set defaults if file doesn't exist)
 await DB.read()
+
 if (Object.keys(DB.data).length == 0)
     DB.data = {
         players: {},
         items: {},
         infrastructures: {},
+        messages: []
     }
 
 // Create new collection with optional initial document
@@ -50,7 +52,7 @@ const addDoc = async (collection_id, document_id, data) => {
 
     DB.data[collection_id][document_id] = data;
     await DB.write();
-    return { ...data, id: document_id };
+    return { ...data };
 }
 
 const updateDoc = async (collection_id, document_id, data) => {
@@ -63,15 +65,15 @@ const updateDoc = async (collection_id, document_id, data) => {
         ...data
     };
     await DB.write();
-    return { ...DB.data[collection_id][document_id], id: document_id };
+    return { ...DB.data[collection_id][document_id] };
 }
 
 const getDoc = async (collection_id, document_id) => {
     const doc = DB.data[collection_id]?.[document_id];
     if (!doc) {
-       return false;
+        return false;
     }
-    return { ...doc, id: document_id };
+    return { ...doc };
 }
 
 const getDocs = async (collection_id, query = null) => {
@@ -178,5 +180,6 @@ const query = () => {
 
     return builder;
 }
+
 
 export { createCollection, addDoc, updateDoc, getDoc, getDocs, query }
