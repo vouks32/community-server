@@ -9,20 +9,99 @@
       "createdAt": "2025-07-08T19:11:12.334Z",
       "lastLogin": "2025-07-08T19:11:12.334Z",
       "isFirstTime": false,
-      "items": [],
+      "items": [
+        {
+          "id": "diploma_finance",
+          "addedDate": 1752231600000,
+          "expireDate": 1753527600000,
+          "activityExpireDate": 1752240000000,
+          "sellerLevel": 3,
+          "isActivityUndergoing": true
+        },
+        {
+          "id": "driving_license",
+          "addedDate": 1752231600000,
+          "expireDate": 1752663600000,
+          "activityExpireDate": 1752237600000,
+          "sellerLevel": 3,
+          "isActivityUndergoing": true
+        }
+      ],
       "role": "policeman",
       "health": 85,
-      "morale": 90,
+      "morale": 160,
       "strength": 7,
-      "intelligence": 20,
-      "money": 7889000,
+      "intelligence": 22,
+      "money": 7681000,
       "isWerewolf": false,
       "lastUpdated": 1752001872331,
       "updates": {
         "isFirstTime": false
       },
-      "activityPoints": 3,
-      "id": "jotsaange@gmail.com"
+      "activityPoints": 1,
+      "id": "jotsaange@gmail.com",
+      "activities": [
+        {
+          "id": "diploma_finance",
+          "name": "Diplome de Finance",
+          "description": "un diplome qui vous permet d'investir dans les différents secteurs de la communauté",
+          "basePrice": 40000,
+          "AcquirerRequiredRoles": [],
+          "AcquirerRequireditems": [],
+          "IsuerRequiredRoles": [
+            "Instructeur"
+          ],
+          "IsuerRequireditems": [],
+          "effects": {
+            "health": 0,
+            "morale": 10,
+            "strength": 0,
+            "intelligence": 3
+          },
+          "dailyEffect": {
+            "health": 0,
+            "morale": 0,
+            "strength": 0,
+            "intelligence": 0
+          },
+          "activityPoints": 1,
+          "activityPointsTimeOut": 7,
+          "itemTimeOut": 1080,
+          "IsuerLevelCoefficient": 1
+        },
+        {
+          "id": "driving_license",
+          "name": "Permis de conduire",
+          "description": "Un permis vous permettant de posseder et conduire une voiture",
+          "image": "",
+          "basePrice": 15000,
+          "AcquirerRequiredRoles": [
+            "driver"
+          ],
+          "AcquirerRequireditems": [],
+          "IsuerRequiredRoles": [
+            "driver",
+            "Instructeur"
+          ],
+          "IsuerRequireditems": [],
+          "effects": {
+            "health": 0,
+            "morale": 20,
+            "strength": 0,
+            "intelligence": 0
+          },
+          "dailyEffect": {
+            "health": 0,
+            "morale": 0,
+            "strength": 0,
+            "intelligence": 0
+          },
+          "activityPoints": 1,
+          "activityPointsTimeOut": 5,
+          "itemTimeOut": 360,
+          "IsuerLevelCoefficient": 1
+        }
+      ]
     },
     "belledesign237@gmail.com": {
       "username": "Guilliene",

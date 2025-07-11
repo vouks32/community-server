@@ -18,6 +18,7 @@ playerAPI.post('/api/players', async (req, res) => {
     const player = req.body;
     const role = getRole();
     const roleData = roleNames[role];
+    console.log("-------------");
     console.log("Création du joueur", player.email, "Au role", role);
 
     const playerData = {
@@ -29,24 +30,27 @@ playerAPI.post('/api/players', async (req, res) => {
       intelligence: roleData.defaultIntelligence,
       money: roleData.defaultMoney,
       items: [],
+      activities: [],
       isWerewolf: false,
       lastUpdated: Date.now()
     };
 
-    await addDoc('players', player.email, playerData)
+    await addDoc('players', player.email)
     console.log("Création du joueur COMPLÉTÉ AVEC SUCCES");
     res.status(201).json(playerData);
   } catch (error) {
-    console.error('Erreur création joueur:', error);
+    console.error('ERREUR création joueur:', error);
     res.status(500).json({ error: 'Échec création joueur' });
   }
 });
 
 // Mise à jour du joueur
 playerAPI.put('/api/players', async (req, res) => {
-  try {if(!req.body) return;
+  try {
+    if (!req.body) return;
     const { email } = req.body;
-    console.log('updating', email, req.body)
+    console.log('--------------')
+    console.log('updating', email)
 
     const playerData = await updateDoc('players', email, req.body.updates)
     //// FAIRE DES TRUCS ////
@@ -73,7 +77,7 @@ playerAPI.get('/api/playerroles', async (req, res) => {
 playerAPI.get('/api/players', async (req, res) => {
   try {
     const { email } = req.query;
-    console.log('===>', req.query)
+    console.log("-------------");
     const playerDoc = await getDoc('players', email);
     console.log('récupération de s informations de', email);
 
@@ -82,7 +86,7 @@ playerAPI.get('/api/players', async (req, res) => {
       return res.status(404).json({ error: 'Joueur non trouvé' });
     }
 
-    console.log('Joueur  trouvé', playerDoc);
+    console.log('Joueur  trouvé', email);
     res.json(playerDoc);
   } catch (error) {
     console.error('Erreur récupération joueur:', error);
@@ -93,8 +97,9 @@ playerAPI.get('/api/players', async (req, res) => {
 playerAPI.get('/api/file/:folder/:name', (req, res, next) => {
   const fileName = req.params.name + '.png'
   const FolderName = req.params.folder
+  console.log("-------------");
 
-  console.log(path.join(__dirname, '..', 'public', FolderName))
+  console.log("récupération de", fileName, "dans", path.join(__dirname, '..', 'public', FolderName))
   const options = {
     root: path.join(__dirname, '..', 'public', FolderName),
     dotfiles: 'deny',
@@ -106,6 +111,7 @@ playerAPI.get('/api/file/:folder/:name', (req, res, next) => {
 
   res.sendFile(fileName, options, (err) => {
     if (err) {
+      console.log('Echech de la récupération')
       next(err)
     } else {
       console.log('Sent:', fileName)
