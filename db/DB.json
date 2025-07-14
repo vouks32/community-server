@@ -12,33 +12,25 @@
       "items": [
         {
           "id": "diploma_finance",
-          "addedDate": 1752231600000,
-          "expireDate": 1753527600000,
-          "activityExpireDate": 1752240000000,
-          "sellerLevel": 3,
-          "isActivityUndergoing": true
-        },
-        {
-          "id": "driving_license",
-          "addedDate": 1752231600000,
-          "expireDate": 1752663600000,
-          "activityExpireDate": 1752237600000,
+          "addedDate": 1752237600000,
+          "expireDate": 1753533600000,
+          "activityExpireDate": 1752246000000,
           "sellerLevel": 3,
           "isActivityUndergoing": true
         }
       ],
       "role": "policeman",
       "health": 85,
-      "morale": 160,
+      "morale": 170,
       "strength": 7,
-      "intelligence": 22,
-      "money": 7681000,
+      "intelligence": 25,
+      "money": 7663000,
       "isWerewolf": false,
       "lastUpdated": 1752001872331,
       "updates": {
         "isFirstTime": false
       },
-      "activityPoints": 1,
+      "activityPoints": 2,
       "id": "jotsaange@gmail.com",
       "activities": [
         {
@@ -68,38 +60,6 @@
           "activityPointsTimeOut": 7,
           "itemTimeOut": 1080,
           "IsuerLevelCoefficient": 1
-        },
-        {
-          "id": "driving_license",
-          "name": "Permis de conduire",
-          "description": "Un permis vous permettant de posseder et conduire une voiture",
-          "image": "",
-          "basePrice": 15000,
-          "AcquirerRequiredRoles": [
-            "driver"
-          ],
-          "AcquirerRequireditems": [],
-          "IsuerRequiredRoles": [
-            "driver",
-            "Instructeur"
-          ],
-          "IsuerRequireditems": [],
-          "effects": {
-            "health": 0,
-            "morale": 20,
-            "strength": 0,
-            "intelligence": 0
-          },
-          "dailyEffect": {
-            "health": 0,
-            "morale": 0,
-            "strength": 0,
-            "intelligence": 0
-          },
-          "activityPoints": 1,
-          "activityPointsTimeOut": 5,
-          "itemTimeOut": 360,
-          "IsuerLevelCoefficient": 1
         }
       ]
     },
@@ -124,5 +84,602 @@
     }
   },
   "items": {},
-  "infrastructures": {}
+  "infrastructures": {},
+  "messages": {
+    "14-07/2025": {},
+    "14-07-2025": {
+      "messages": [
+        {
+          "id": "jotsaange@gmail.com-1752486192568",
+          "date": 1752486192568,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ccg",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487186939",
+          "date": 1752487186939,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487309058",
+          "date": 1752487309058,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ggnk",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487323830",
+          "date": 1752487323830,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Jjuh",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487336789",
+          "date": 1752487336789,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Bgh",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487476789",
+          "date": 1752487476789,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Buhj",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487589993",
+          "date": 1752487589993,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Sd",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487842269",
+          "date": 1752487842269,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Vhjn",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752487934385",
+          "date": 1752487934385,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Xfrhl",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752488290508",
+          "date": 1752488290508,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Gh",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752488319238",
+          "date": 1752488319238,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Drrf",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752507032337",
+          "date": 1752507032337,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Vkkjj",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752507690524",
+          "date": 1752507690524,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Hcgh bjky",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752508890641",
+          "date": 1752508890641,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Bjk",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752509045970",
+          "date": 1752509045970,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yoo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752509096635",
+          "date": 1752509096635,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "On.dit quoi?",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752509145471",
+          "date": 1752509145471,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "On.dit quoi",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752509236809",
+          "date": 1752509236809,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "On.dit quo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752509384883",
+          "date": 1752509384883,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Bitch",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752509522783",
+          "date": 1752509522783,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Fhvboo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510759286",
+          "date": 1752510759286,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ccccc",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510767604",
+          "date": 1752510767604,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ccc",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510772313",
+          "date": 1752510772313,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Moon",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510827699",
+          "date": 1752510827699,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yuy",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510834648",
+          "date": 1752510834648,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yuycucu",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510885514",
+          "date": 1752510885514,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Cucug",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510955860",
+          "date": 1752510955860,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Bknb",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752510981832",
+          "date": 1752510981832,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Bitch ass",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752511046766",
+          "date": 1752511046766,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Tqou",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752511050293",
+          "date": 1752511050293,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Tqoutru",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752511091804",
+          "date": 1752511091804,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Nigga",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752511141144",
+          "date": 1752511141144,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Nigg",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752511146203",
+          "date": 1752511146203,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Niggpo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514036037",
+          "date": 1752514036037,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yo odq? ",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514053086",
+          "date": 1752514053086,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Esseu il y a la chop",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514076186",
+          "date": 1752514076186,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Iol mugv ",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514082937",
+          "date": 1752514082937,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Iol mugv ton",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514095406",
+          "date": 1752514095406,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Iol mug",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514115290",
+          "date": 1752514115290,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Moiy",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514122845",
+          "date": 1752514122845,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Mois pour l'honneur ",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514139022",
+          "date": 1752514139023,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Je ne wise pas",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514148840",
+          "date": 1752514148840,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Il jos quoi?",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514158084",
+          "date": 1752514158084,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Il jos quoi merr",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514212261",
+          "date": 1752514212261,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Il jos quoi me",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514218862",
+          "date": 1752514218862,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Il jos quoi ",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514249865",
+          "date": 1752514249865,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Il jos qu",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752514257947",
+          "date": 1752514257947,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Je ne wise pas",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752515351979",
+          "date": 1752515351979,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ton cul.gar",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752515376226",
+          "date": 1752515376226,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ton cul.gar @lionel ",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
+        }
+      ],
+      "number": 52,
+      "date": "14-07-2025"
+    }
+  }
 }

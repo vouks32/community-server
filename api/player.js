@@ -127,9 +127,9 @@ playerAPI.get('/api/messages', async (req, res) => {
   try {
     const { date } = req.query;
     console.log("-------------");
-    console.log('récupération des messages de la date', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+    console.log('récupération des messages de la date', date, (new Date(parseInt(date))).toLocaleDateString('en-GB').replaceAll('/', '-'));
 
-    const messageDoc = await getDoc('messages', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+    const messageDoc = await getDoc('messages', (new Date(parseInt(date))).toLocaleDateString('en-GB').replaceAll('/', '-'));
 
     if (!messageDoc) {
       console.log('Messages non-trouvé');
@@ -139,7 +139,7 @@ playerAPI.get('/api/messages', async (req, res) => {
     console.log('Messages trouvé');
     res.json(messageDoc);
   } catch (error) {
-    console.error('Erreur récupération des messages du:', (new Date()).toLocaleDateString('en-GB').replace('/', '-'));
+    console.error('Erreur récupération des messages du:', (new Date(parseInt(date))).toLocaleDateString('en-GB').replaceAll('/', '-'));
     res.status(500).json({ error: 'Échec récupération des messages' });
   }
 });
@@ -147,8 +147,8 @@ playerAPI.get('/api/messages', async (req, res) => {
 // ajout d'un message
 playerAPI.put('/api/messages', async (req, res) => {
   try {
-    const { message } = req.query;
-    const document_id = (new Date()).toLocaleDateString('en-GB').replace('/', '-');
+    const { message } = req.body;
+    const document_id = (new Date()).toLocaleDateString('en-GB').replaceAll('/', '-');
     console.log("-------------");
 
     let todayMessages = await getDoc('messages', document_id)
@@ -161,13 +161,13 @@ playerAPI.put('/api/messages', async (req, res) => {
     } else {
       todayMessages.messages.push(message);
       todayMessages.number++;
-      updateDoc('messages', document_id, todayMessages);
+      todayMessages = await updateDoc('messages', document_id, todayMessages);
     }
 
     console.log('Messages enregistré');
     res.json(todayMessages);
   } catch (error) {
-    console.error('Erreur d\'enregistrement des messages du:', (new Date()).toLocaleDateString('en-GB').replace('/', '-'));
+    console.error('Erreur d\'enregistrement des messages du:', (new Date()).toLocaleDateString('en-GB').replaceAll('/', '-'), "\nerror :", error);
     res.status(500).json({ error: 'Échec enregistrement des messages' });
   }
 });
