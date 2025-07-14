@@ -127,8 +127,9 @@ playerAPI.get('/api/messages', async (req, res) => {
   try {
     const { date } = req.query;
     console.log("-------------");
-    const messageDoc = await getDoc('messages', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
     console.log('récupération des messages de la date', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+
+    const messageDoc = await getDoc('messages', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
 
     if (!messageDoc) {
       console.log('Messages non-trouvé');
@@ -152,10 +153,15 @@ playerAPI.put('/api/messages', async (req, res) => {
 
     let todayMessages = await getDoc('messages', document_id)
     if (!todayMessages) {
-      todayMessages = await addDoc('messages', document_id, { "0": message })
+      todayMessages = await addDoc('messages', document_id, {
+        messages: [message],
+        number: 1,
+        date : document_id
+      })
     } else {
-      let _id = Object.entries(object1).length + "";
-      todayMessages = await addDoc('messages', document_id, { ...todayMessages, _id: message })
+      todayMessages.messages.push(message);
+      todayMessages.number++;
+      updateDoc('messages', document_id, todayMessages);
     }
 
     console.log('Messages enregistré');

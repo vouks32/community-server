@@ -5,4 +5,9 @@ let a = [
     {num: 4},
 ]
 
-console.log({...a, id : 'xxx'})
+let b = {
+    name : "xx"
+}
+
+console.log([...a, {num: 4}])
+console.log({...b, namez: "er"})
