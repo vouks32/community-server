@@ -1,4 +1,4 @@
-import { addDoc, getDoc, updateDoc } from '../localDatabase.js';
+import { addDoc, getDoc, getDocs, updateDoc } from '../localDatabase.js';
 import e from 'express';
 import cors from "cors";
 import { roleNames } from '../PlayerData.js';
@@ -77,18 +77,18 @@ playerAPI.get('/api/players', async (req, res) => {
   try {
     const { email } = req.query;
     console.log("-------------");
-    const playerDoc = await getDoc('players', email);
+    const playerDoc = email.includes('@all') ? await getDocs('players') : await getDoc('players', email);
     console.log('récupération de s informations de', email);
 
     if (!playerDoc) {
-      console.log('Joueur non trouvé');
+      console.log('Joueur non trouvé', email);
       return res.status(404).json({ error: 'Joueur non trouvé' });
     }
 
     console.log('Joueur  trouvé', email);
     res.json(playerDoc);
   } catch (error) {
-    console.error('Erreur récupération joueur:', error);
+    console.error('Erreur récupération joueur:', email, error);
     res.status(500).json({ error: 'Échec récupération joueur' });
   }
 });
@@ -127,9 +127,9 @@ playerAPI.get('/api/messages', async (req, res) => {
   try {
     const { date } = req.query;
     console.log("-------------");
-    console.log('récupération des messages de la date', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+    console.log('récupération des messages de la date', date, (new Date(parseInt(date))).toLocaleDateString('en-GB').replaceAll('/', '-'));
 
-    const messageDoc = await getDoc('messages', (new Date(date)).toLocaleDateString('en-GB').replace('/', '-'));
+    const messageDoc = await getDoc('messages', (new Date(parseInt(date))).toLocaleDateString('en-GB').replaceAll('/', '-'));
 
     if (!messageDoc) {
       console.log('Messages non-trouvé');
@@ -139,7 +139,7 @@ playerAPI.get('/api/messages', async (req, res) => {
     console.log('Messages trouvé');
     res.json(messageDoc);
   } catch (error) {
-    console.error('Erreur récupération des messages du:', (new Date()).toLocaleDateString('en-GB').replace('/', '-'));
+    console.error('Erreur récupération des messages du:', (new Date(parseInt(date))).toLocaleDateString('en-GB').replaceAll('/', '-'));
     res.status(500).json({ error: 'Échec récupération des messages' });
   }
 });
@@ -148,7 +148,7 @@ playerAPI.get('/api/messages', async (req, res) => {
 playerAPI.put('/api/messages', async (req, res) => {
   try {
     const { message } = req.body;
-    const document_id = (new Date()).toLocaleDateString('en-GB').replace('/', '-');
+    const document_id = (new Date()).toLocaleDateString('en-GB').replaceAll('/', '-');
     console.log("-------------");
 
     let todayMessages = await getDoc('messages', document_id)
@@ -156,18 +156,18 @@ playerAPI.put('/api/messages', async (req, res) => {
       todayMessages = await addDoc('messages', document_id, {
         messages: [message],
         number: 1,
-        date : document_id
+        date: document_id
       })
     } else {
       todayMessages.messages.push(message);
       todayMessages.number++;
-      updateDoc('messages', document_id, todayMessages);
+      todayMessages = await updateDoc('messages', document_id, todayMessages);
     }
 
     console.log('Messages enregistré');
     res.json(todayMessages);
   } catch (error) {
-    console.error('Erreur d\'enregistrement des messages du:', (new Date()).toLocaleDateString('en-GB').replace('/', '-'));
+    console.error('Erreur d\'enregistrement des messages du:', (new Date()).toLocaleDateString('en-GB').replaceAll('/', '-'), "\nerror :", error);
     res.status(500).json({ error: 'Échec enregistrement des messages' });
   }
 });
