@@ -71,7 +71,7 @@
       "profileImage": "file:///data/user/0/com.vouks.community/cache/ImagePicker/f62ad617-e8df-4be5-a7d6-307e8dee2dc3.jpeg",
       "createdAt": "2025-07-09T02:40:44.349Z",
       "lastLogin": "2025-07-09T02:40:44.349Z",
-      "isFirstTime": true,
+      "isFirstTime": false,
       "role": "lawyer",
       "health": 80,
       "morale": 80,
@@ -676,10 +676,220 @@
             "userName": "Vouks"
           },
           "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752519317393",
+          "date": 1752519317393,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Est-ce que tu préfères aller au restaurant avec ta petite amie et le lorsque le serveur vient vous demander qu'est-ce qui vous sert tu te sens offensé par le fait que il ne vous a pas appelé joli couple alors du coup tu sors ton baffe pour le combattre mais à ta grande surprise lui aussi ils s'en sort sont paf qui est fait beaucoup plus gros que le tien et quand vous combattez il finit par te dominer de son géant PAF et tu perds et ta petite amie qui finit par te voir comme un homme bêta un sous homme dominé par le PAF géant de ce serveur décide de te quitter pour le serveur et de le kayakoubeme dans les toilettes du restaurant\nOu, est-ce que tu préfère ne plus jamais utiliser la lettre x\n\nVoici un Consiel de séduction, est-ce que tu préfère avoir un shot de whiskey mélangé à ta propre diarrhée qui serait resté au soleil pendant 413 jours, ou lecher profondément les narines de 5 premier inconnues que tu vois  dans le centre ville (avec possibilité de tombée sur des sans abrits)\n\nVoici un conseil contre la dépression. Est-ce que tu préfère être attrapé par des caméras caché d'une émission de la chaine nationale pendant que tu te bousillé l'engin devant ton frigo ouvert dont le froid fait partie du processus tout en fixant agressivement la photo des doigts de pieds du président actuel du Ghana,\nOu Est-ce que tu préfères ne plus jamais planter de graines de pastèque de ta vie\n",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "userName": "Vouks"
+          },
+          "role": "policeman"
         }
       ],
-      "number": 52,
+      "number": 53,
       "date": "14-07-2025"
+    },
+    "15-07-2025": {
+      "messages": [
+        {
+          "id": "jotsaange@gmail.com-1752538564571",
+          "date": 1752538564571,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "@Guilliene ",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752539589656",
+          "date": 1752539589656,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yooo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "belledesign237@gmail.com-1752568344501",
+          "date": 1752568344501,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ton cul frère ",
+          "sender": {
+            "email": "belledesign237@gmail.com",
+            "username": "Guilliene"
+          },
+          "role": "lawyer"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752568354218",
+          "date": 1752568354218,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Quoi?",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752569893226",
+          "date": 1752569893226,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Quoi",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570063723",
+          "date": 1752570063723,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570070624",
+          "date": 1752570070624,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Bitch ass niga",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570084172",
+          "date": 1752570084172,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yyooooo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570085365",
+          "date": 1752570085365,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yyooooo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570085598",
+          "date": 1752570085598,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Yyooooo",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570387490",
+          "date": 1752570387490,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Le cul",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570436299",
+          "date": 1752570436299,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Tob cul bro",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570469457",
+          "date": 1752570469457,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ton cul gar",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570475781",
+          "date": 1752570475781,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Idio",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "jotsaange@gmail.com-1752570720824",
+          "date": 1752570720824,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ton cul gar",
+          "sender": {
+            "email": "jotsaange@gmail.com",
+            "username": "Vouks"
+          },
+          "role": "policeman"
+        },
+        {
+          "id": "belledesign237@gmail.com-1752570787510",
+          "date": 1752570787510,
+          "isVoice": false,
+          "voiceUrl": null,
+          "text": "Ekié",
+          "sender": {
+            "email": "belledesign237@gmail.com",
+            "username": "Guilliene"
+          },
+          "role": "lawyer"
+        }
+      ],
+      "number": 16,
+      "date": "15-07-2025"
     }
   }
 }
