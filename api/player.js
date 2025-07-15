@@ -147,7 +147,7 @@ playerAPI.get('/api/messages', async (req, res) => {
 // ajout d'un message
 playerAPI.put('/api/messages', async (req, res) => {
   try {
-    const { message } = req.query;
+    const { message } = req.body;
     const document_id = (new Date()).toLocaleDateString('en-GB').replace('/', '-');
     console.log("-------------");
 
